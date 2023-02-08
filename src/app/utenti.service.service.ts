@@ -19,7 +19,7 @@ export class UtentiServiceService {
  creaUtenti(utenti: Utenti): Observable<any>{
   return this.http.post("${this.url}", utenti);
 }
- deteteUtenti (ide: number){
+ deteteUtenti (id: number){
   return this.http.delete("${this.url}/${id}");
 }
 }
