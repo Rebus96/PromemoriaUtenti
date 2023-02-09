@@ -24,9 +24,12 @@ export class CreaUtentiComponent implements OnInit{
       this.gotoList();
     });
   }
-
-
-  private gotoList() {
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+  private gotoList (){
     this.router.navigate(["/utente"]);
   }
+
 }
