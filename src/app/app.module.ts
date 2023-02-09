@@ -7,6 +7,7 @@ import {Utente} from "./utente";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { CreaUtentiComponent } from './crea-utente/crea-utenti.component';
 import { UtentelistComponent } from './utentelist/utentelist.component';
+import {FormsModule, NgModel} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { UtentelistComponent } from './utentelist/utentelist.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

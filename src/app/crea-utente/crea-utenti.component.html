@@ -1,18 +1,21 @@
-<p>crea-utenti works!</p>
-<div [hidden]="submitted" style="width: 500px;">
+<p xmlns="http://www.w3.org/1999/html">Crea-Utente</p>
+<div [hidden]="submitted" style="border-bottom-color: #125699">
   <form (ngSubmit)="onSubmit()">
+   <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" id="firstname" required [(ngModel)]="utente.firstname" name="firstname">
+   </div>
+
     <div class="form-group">
-      <label for="firstname">First Name</label>
-      <input type="text" class="form-control" id="firstname" required [(ngModel)]="utente.firstname" name="nome">
+     <label for="lastname"> Last Name</label>
+      <input type="text" class="form-control" id="lastname" required [(ngModel)]="utente.firstname" name="lastname">
     </div>
 
-        <div class="form-group">
-          <label for="lastname">Last Name</label>
-          <input type="text" class="form-control" id="lastname" required [(ngModel)]="utente.lastname" name="nome">
-        </div>
     <div class="form-group">
       <label for="ruolo">Ruolo</label>
-      <input type="text" class="form-control" id="ruolo" required [(ngModel)]="utente.ruolo" name="nome">
+      <input type="text" class="form-control" id="ruolo" required [(ngModel)]="utente.ruolo" name="ruolo">
     </div>
+
+<button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
