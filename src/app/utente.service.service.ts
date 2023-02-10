@@ -8,7 +8,7 @@ import {Utente} from "./utente";
   providedIn: 'root'
 })
 export class UtenteServiceService {
-  private url = `http://localhost:3306/springboot-crud-rest/utenti/utente`
+  private url = `http://localhost:3306/springboot-crud-rest/utenti/utente`;
 
   constructor(private http: HttpClient) {
   }
