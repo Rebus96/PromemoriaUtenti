@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Utente} from "../utente";
 import {UtenteServiceService} from "../utente.service.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-utentelist',
@@ -12,8 +12,7 @@ import {Router} from "@angular/router";
 export class UtentelistComponent implements OnInit{
   utente: Observable<Utente[]>;
 
-  constructor(private es: UtenteServiceService,
-              private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {}
   ngOnInit() {
     this.reloadData();
   }
@@ -24,6 +23,9 @@ export class UtentelistComponent implements OnInit{
     this.es.deteteUtente(id).subscribe((a:any)=>{
       this.reloadData();
     })
+ }
+ dettagliUtente(id: number){
+    this.router.navigate(['dettagli', id]);
  }
 
 

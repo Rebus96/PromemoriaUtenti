@@ -28,4 +28,5 @@ export class UtenteServiceService {
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
+
 }
