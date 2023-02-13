@@ -35,7 +35,7 @@ export class CreaUtentiComponent implements OnInit {
   }
 
   private gotoList() {
-    this.router.navigate(["/utente"]);
+    this.router.navigate(['/utente']);
   }
 
 }

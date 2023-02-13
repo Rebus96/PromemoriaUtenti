@@ -6,6 +6,7 @@ import {CreaUtentiComponent} from "./crea-utente/crea-utenti.component";
 const routes: Routes = [
   {path: '', redirectTo: 'addutente', pathMatch: 'full'},
   {path: 'addutente', component: CreaUtentiComponent},
+  {path: 'utente', component: UtentelistComponent},
 
 ];
 
