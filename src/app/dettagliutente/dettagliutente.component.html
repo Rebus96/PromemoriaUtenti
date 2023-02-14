@@ -1,1 +1,13 @@
-<p>dettagliutente works!</p>
+<h2>Dettagli Utente</h2>
+
+<hr/>
+<div *ngIf="utente">
+  <div>
+    <label><b>Nome: </b></label> {{utente.firstname}}
+  </div>
+  <div>
+    <label><b>Cognome: </b></label> {{utente.lastname}}
+  </div>
+
+</div>
+<button (click)="gotoList()" class="btn btn-primary">Ritorna alla lista utenti</button><br>

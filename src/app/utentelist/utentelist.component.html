@@ -1,1 +1,24 @@
-<p>Lista Utenti</p>
+<p class="h2" xmlns="http://www.w3.org/1999/html">Lista Utenti</p>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <th> Nome</th>
+    <th> Cognome</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let utente of listaUtenti ">
+    <td>{{utente.firstname}}</td>
+    <td>{{utente.lastname}}</td>
+    <td>
+      <<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2" type="button">Dettagli</button>
+      <button class="btn btn-primary" type="button">X</button>
+    </div>
+
+    </td>
+  </tr>
+  </tbody>
+</table>

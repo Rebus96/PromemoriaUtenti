@@ -9,25 +9,33 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './utentelist.component.html',
   styleUrls: ['./utentelist.component.scss']
 })
-export class UtentelistComponent implements OnInit{
-  utente: Observable<Utente[]>;
+export class UtentelistComponent implements OnInit {
+  //utente: Observable<Utente[]>;
+  listaUtenti: Utente[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {
+  }
+
   ngOnInit() {
     this.reloadData();
   }
+
   reloadData() {
-    this.utente = this.es.getUtenteList();
-}
- deleteUtente(id: number){
-    this.es.deteteUtente(id).subscribe((a:any)=>{
+    this.es.getUtenteList().subscribe((arr) => {
+      console.log(arr);
+      this.listaUtenti = arr;
+    });
+  }
+
+  deleteUtente(id: number) {
+    this.es.deteteUtente(id).subscribe((a: any) => {
       this.reloadData();
     })
- }
- dettagliUtente(id: number){
-    this.router.navigate(['dettagli', id]);
- }
+  }
 
+  dettagliUtente(id: number) {
+    this.router.navigate(['dettagli', id]);
+  }
 
 
 }

@@ -14,7 +14,7 @@ export class UtenteServiceService {
   }
 
   getUtenteList(): Observable<any> {
-    return this.http.get(`${this.url}`);
+    return this.http.get(`${this.url}/utente`);
   }
 
   getUtente(id: number): Observable<any> {
@@ -27,6 +27,9 @@ export class UtenteServiceService {
 
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  updateUtente(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.url}/${id}`, value);
   }
 
 }
