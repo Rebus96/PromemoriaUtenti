@@ -26,7 +26,7 @@ export class DettagliutenteComponent implements OnInit {
 
     }
 
-  gotoList(){
+  listaUtenti(){
     this.router.navigate(['utente']);
   }
 }
