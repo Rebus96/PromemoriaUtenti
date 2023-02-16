@@ -1,6 +1,6 @@
 <p class="h2" xmlns="http://www.w3.org/1999/html">Lista Utenti</p>
 
-<table class="table table-striped">
+<table class="table table-bordered">
   <thead class="table-dark">
   <tr>
     <th> Nome</th>
@@ -13,11 +13,10 @@
     <td>{{utente.firstname}}</td>
     <td>{{utente.lastname}}</td>
     <td>
-      <<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-primary me-md-2" type="button">Dettagli</button>
-      <button class="btn btn-primary" type="button">X</button>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-primary btn-sm" (click)="dettagliUtente(utente.id)">Dettagli</button>
+      <button type="button" class="btn-close" aria-label="Close" (click)="deleteUtente(utente.id)" ></button>
     </div>
-
     </td>
   </tr>
   </tbody>

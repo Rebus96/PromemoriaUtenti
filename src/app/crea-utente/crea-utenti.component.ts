@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Utente} from "../utente";
 import {UtenteServiceService} from "../utente.service.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-crea-utenti',
@@ -12,7 +12,7 @@ export class CreaUtentiComponent implements OnInit {
   utente: Utente = new Utente();
   submitted = false;
 
-  constructor(private es: UtenteServiceService, private router: Router) {
+  constructor(private route: ActivatedRoute, private es: UtenteServiceService, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,7 +35,9 @@ export class CreaUtentiComponent implements OnInit {
   }
 
   private gotoList() {
+     console.log("CIAO CIAO CIAO");
     this.router.navigate(['/utente']);
+
   }
 
 }

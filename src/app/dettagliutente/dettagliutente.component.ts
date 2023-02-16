@@ -27,7 +27,7 @@ export class DettagliutenteComponent implements OnInit {
     }
 
   listaUtenti(){
-    this.router.navigate(['utente']);
+    this.router.navigate(['/utente']);
   }
 }
 

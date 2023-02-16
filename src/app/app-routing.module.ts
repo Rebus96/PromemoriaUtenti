@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'addutente', pathMatch: 'full'},
   {path: 'addutente', component: CreaUtentiComponent},
   {path: 'utente', component: UtentelistComponent},
-  {path: 'dettagliutende', component: DettagliutenteComponent},
+  {path: 'dettagliutente', component: DettagliutenteComponent},
 
 
 ];
