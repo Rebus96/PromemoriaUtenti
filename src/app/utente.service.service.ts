@@ -26,7 +26,7 @@ export class UtenteServiceService {
   }
 
   deteteUtente(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.http.delete(`${this.url}/utente/${id}`);
   }
   updateUtente(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.url}/${id}`, value);

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Utente} from "../utente";
 import {UtenteServiceService} from "../utente.service.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-utentelist',
@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class UtentelistComponent implements OnInit {
   //utente: Observable<Utente[]>;
   listaUtenti: Utente[];
+  //id: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {
   }
