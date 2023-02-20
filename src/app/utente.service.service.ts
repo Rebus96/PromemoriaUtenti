@@ -28,8 +28,8 @@ export class UtenteServiceService {
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/utente/${id}`);
   }
-  findByOrderByFirstname(firstName: string): Observable<any>{
-    return this.http.get(`${this.url}/utente/${firstName}`)
+  findAllByOrderByFirstname(): Observable<any>{
+    return this.http.get(`${this.url}/utente`)
   }
 
 }
