@@ -32,11 +32,13 @@ export class UtentelistComponent implements OnInit {
     this.es.deteteUtente(id).subscribe((a: any) => {
       this.reloadData();
     })
+
   }
 
   dettagliUtente(id: number) {
-    this.router.navigate(['/dettagliutente']);
+    this.router.navigate(['dettagliutente', id]);
   }
-
+  filtriUtenti(){
+    this.router.navigate(['filtri']);}
 
 }

@@ -20,15 +20,15 @@ export class DettagliutenteComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.es.getUtente(this.id).subscribe((res)=>{
-
       this.utente = res;
     });
 
     }
 
   listaUtenti(){
-    this.router.navigate(['/utente']);
+    this.router.navigate(['utente']);
   }
+
 }
 
 

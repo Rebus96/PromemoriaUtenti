@@ -8,10 +8,10 @@
   <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Nome" aria-label="Nome">
+        <input name="firstName" [(ngModel)]="utente.firstname" type="text" class="form-control" placeholder="Nome" aria-label="Nome">
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Cognome" aria-label="Cognome">
+        <input name="cacca" [(ngModel)]="utente.lastname" type="text" class="form-control" placeholder="Cognome" aria-label="Cognome">
       </div>
     </div>
     <button class="btn btn-primary" type="submit">Crea Utente</button>

@@ -18,18 +18,18 @@ export class UtenteServiceService {
   }
 
   getUtente(id: number): Observable<any> {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`${this.url}/utente/${id}`);
   }
 
-  creaUtente(utenti: Utente): Observable<any> {
-    return this.http.post(`${this.url}`, utenti);
+  creaUtente(utente: Utente): Observable<any> {
+    return this.http.post(`${this.url}/utente`, utente);
   }
 
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/utente/${id}`);
   }
-  updateUtente(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.url}/${id}`, value);
+  findByOrderByFirstname(firstName: string): Observable<any>{
+    return this.http.get(`${this.url}/utente/${firstName}`)
   }
 
 }
