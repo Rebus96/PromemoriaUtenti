@@ -1,19 +1,33 @@
 <p class="h2" xmlns="http://www.w3.org/1999/html">Lista Utenti</p>
 
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input type="text" class="form-control me-2" id="Search"  required [(ngModel)]="s" name="Search" aria-label="Search">
+
+      <button (click)="getSearch()" type="button" class="btn btn-success">Search</button>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </form>
+  </div>
+
 <table class="table table-bordered">
   <thead class="table-dark">
   <tr>
-    <th> Nome</th>
+    <th (click)="ordineUtenti()"> Nome</th>
     <th> Cognome</th>
-
     <th></th>
   </tr>
   </thead>
-  <tbody>
+  <tbody id="firstname">
   <tr *ngFor="let utente of listaUtenti ">
     <td>{{utente.firstname}}</td>
     <td>{{utente.lastname}}</td>
-    <td>
+    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+    </svg>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button type="button" class="btn btn-primary btn-sm" (click)="dettagliUtente(utente.id)">Dettagli</button>
       <button type="button" class="btn-close" aria-label="Close" (click)="deleteUtente(utente.id)" ></button>
@@ -22,4 +36,4 @@
   </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-primary btn-sm" (click)="filtriUtenti()">Filtri</button>
+

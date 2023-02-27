@@ -13,12 +13,16 @@ export class UtentelistComponent implements OnInit {
   //utente: Observable<Utente[]>;
   listaUtenti: Utente[];
   //id: number;
+  tmp: boolean = false;
+  s: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {
   }
 
   ngOnInit() {
+
     this.reloadData();
+
   }
 
   reloadData() {
@@ -31,14 +35,20 @@ export class UtentelistComponent implements OnInit {
   deleteUtente(id: number) {
     this.es.deteteUtente(id).subscribe((a: any) => {
       this.reloadData();
-    })
+    });}
 
-  }
+
+
 
   dettagliUtente(id: number) {
     this.router.navigate(['dettagliutente', id]);
   }
-  filtriUtenti(){
-    this.router.navigate(['filtri']);}
+  ordineUtenti(){
+    this.router.navigate(['ordine']);}
 
+   getSearch() {
+    this.es.searchUtente(this.s)
+      console.log(this.s);
+
+  }
 }

@@ -5,10 +5,10 @@ import {Utente} from "../utente";
 
 @Component({
   selector: 'app-filtri',
-  templateUrl: './filtri.component.html',
-  styleUrls: ['./filtri.component.scss']
+  templateUrl: './ordine.component.html',
+  styleUrls: ['./ordine.component.scss']
 })
-export class FiltriComponent implements OnInit {
+export class OrdineComponent implements OnInit {
   firstname: string;
   listaUtenti: Utente[];
 
@@ -39,7 +39,7 @@ export class FiltriComponent implements OnInit {
   }
 
 
-  filtriUtente() {
+  ordineUtente() {
     this.router.navigate(['utente'])
 
   }

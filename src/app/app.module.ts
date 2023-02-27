@@ -9,7 +9,7 @@ import { CreaUtentiComponent } from './crea-utente/crea-utenti.component';
 import { UtentelistComponent } from './utentelist/utentelist.component';
 import {FormsModule, NgModel} from "@angular/forms";
 import { DettagliutenteComponent } from './dettagliutente/dettagliutente.component';
-import { FiltriComponent } from './filtri/filtri.component';
+import { OrdineComponent } from './ordine/ordine.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { FiltriComponent } from './filtri/filtri.component';
     CreaUtentiComponent,
     UtentelistComponent,
     DettagliutenteComponent,
-    FiltriComponent,
+    OrdineComponent,
 
   ],
   imports: [

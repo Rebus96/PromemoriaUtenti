@@ -31,5 +31,7 @@ export class UtenteServiceService {
   findAllByOrderByFirstname(): Observable<any>{
     return this.http.get(`${this.url}/utente`)
   }
-
+  searchUtente(nome: string): Observable<any>{
+    return this.http.get(`${this.url}/${nome}`)
+  }
 }

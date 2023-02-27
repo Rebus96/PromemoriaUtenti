@@ -29,6 +29,7 @@ export class CreaUtentiComponent implements OnInit {
     this.es.creaUtente(this.utente).subscribe(() => {
       this.gotoList();
     });
+
   }
 
   onSubmit() {
@@ -41,5 +42,6 @@ export class CreaUtentiComponent implements OnInit {
     this.router.navigate(['/utente']);
 
   }
+
 
 }
