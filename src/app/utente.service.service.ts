@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Utente} from "./utente";
 
 
@@ -31,7 +31,16 @@ export class UtenteServiceService {
   findAllByOrderByFirstname(): Observable<any>{
     return this.http.get(`${this.url}/utente`)
   }
-  searchUtente(nome: string): Observable<any>{
-    return this.http.get(`${this.url}/${nome}`)
+  search(name: string): Observable<Utente[]> {
+    let params = new HttpParams().set('filter', name);
+    return this.http.get<Utente[]>(`${this.url}/utente/search/${name}`, {params: params});
+  }
+  getPage(page: number, size: number): Observable<any>{
+    let params = new HttpParams().set('page', page).set('size', size);
+    return this.http.get(`${this.url}/utente/page`, {params: params})
+  }
+  getSize(page: number, size: number): Observable<any>{
+    let params = new HttpParams().set('page', page).set('size', size);
+    return this.http.get(`${this.url}/utente/page`, {params: params})
   }
 }

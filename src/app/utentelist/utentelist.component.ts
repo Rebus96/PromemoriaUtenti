@@ -3,6 +3,8 @@ import {Observable} from "rxjs";
 import {Utente} from "../utente";
 import {UtenteServiceService} from "../utente.service.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {FormControl} from "@angular/forms";
+import {PagingConfig} from "../pagingConfig";
 
 @Component({
   selector: 'app-utentelist',
@@ -10,19 +12,27 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
   styleUrls: ['./utentelist.component.scss']
 })
 export class UtentelistComponent implements OnInit {
-  //utente: Observable<Utente[]>;
+  inputValue: string = '';
+  filteredOptions: string [] ;
   listaUtenti: Utente[];
-  //id: number;
   tmp: boolean = false;
-  s: string;
+  firstname: string;
+  page: number = 1;
+  size: number = 5;
+  tableSize: number[] = [2,5,10];
+
+  pagingConfig: PagingConfig = {} as PagingConfig;
+
 
   constructor(private route: ActivatedRoute, private router: Router, private es: UtenteServiceService) {
+    this.pagingConfig = {
+      size: this.size,
+
+    }
   }
 
   ngOnInit() {
-
     this.reloadData();
-
   }
 
   reloadData() {
@@ -35,10 +45,8 @@ export class UtentelistComponent implements OnInit {
   deleteUtente(id: number) {
     this.es.deteteUtente(id).subscribe((a: any) => {
       this.reloadData();
-    });}
-
-
-
+    });
+  }
 
   dettagliUtente(id: number) {
     this.router.navigate(['dettagliutente', id]);
@@ -46,9 +54,28 @@ export class UtentelistComponent implements OnInit {
   ordineUtenti(){
     this.router.navigate(['ordine']);}
 
-   getSearch() {
-    this.es.searchUtente(this.s)
-      console.log(this.s);
 
+  onChange(value: string): void {
+      this.es.search(value).subscribe(list => {
+        this.filteredOptions = list.map(utente => utente.firstname);
+
+      });
+    }
+  getPage(value: number){
+    this.es.getPage(value, this.pagingConfig.size).subscribe(size =>{
+
+    })
   }
+  onTableSizeChange(event:any): void {
+    this.pagingConfig.size = event.target.value;
+    this.getSize(0);
+  }
+  getSize(value: number){
+    this.es.getPage(value, this.pagingConfig.size).subscribe(size =>{
+          console.log("cacca")
+      console.log(size)
+      this.listaUtenti = size.content;
+    })
+  }
+
 }

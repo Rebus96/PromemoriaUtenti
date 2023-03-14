@@ -1,20 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
-    <h2 class="navbar-brand" href="#">Promemoria</h2>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a routerLink="utente" class="nav-link active" aria-current="page" routerLinkActive="Active">Lista Utenti</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="addutente" class="nav-link" routerLinkActive="Active">Add Utente</a>
-        </li>
-      </ul>
-    </div>
+    <h2 class="navbar-brand" routerLink="addutente" style="cursor:pointer">Promemoria</h2>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="utente" class="nav-link active" aria-current="page" routerLinkActive="Active">Lista Utenti</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="addutente" class="nav-link" routerLinkActive="Active">Add Utente</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <div class="container text-center">
@@ -23,9 +17,7 @@
 
     </div>
 
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </div>
-
-
+</div>
 

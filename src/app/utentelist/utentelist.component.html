@@ -1,16 +1,17 @@
 <p class="h2" xmlns="http://www.w3.org/1999/html">Lista Utenti</p>
 
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input type="text" class="form-control me-2" id="Search"  required [(ngModel)]="s" name="Search" aria-label="Search">
+  <div>
+    <div class="example-input">
+      <input
+        placeholder='Search Utente'
+        nz-input
+        [(ngModel)]="inputValue"
+        (ngModelChange)="onChange($event)"
+        [nzAutocomplete]="auto"
+      />
 
-      <button (click)="getSearch()" type="button" class="btn btn-success">Search</button>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </form>
+      <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+    </div>
   </div>
 
 <table class="table table-bordered">
@@ -22,18 +23,40 @@
   </tr>
   </thead>
   <tbody id="firstname">
-  <tr *ngFor="let utente of listaUtenti ">
+
+  <tr *ngFor="let utente of listaUtenti| paginate : {itemsPerPage: pagingConfig.size ,currentPage: page} ">
+
     <td>{{utente.firstname}}</td>
     <td>{{utente.lastname}}</td>
     <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
     </svg>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
       <button type="button" class="btn btn-primary btn-sm" (click)="dettagliUtente(utente.id)">Dettagli</button>
       <button type="button" class="btn-close" aria-label="Close" (click)="deleteUtente(utente.id)" ></button>
-    </div>
+
     </td>
+
   </tr>
+  <div class="col-auto">
+    <select name="noOfRows" (change)="onTableSizeChange($event)" class="form-select form-select-sm">x
+      <option *ngFor="let size of tableSize" [value]="size">
+        {{size}}
+      </option>
+    </select>
+  </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+
+      </li>
+      <li class="page-item">
+
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </li>
+    </ul>
+  </nav>
   </tbody>
 </table>
 
