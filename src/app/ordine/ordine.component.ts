@@ -18,15 +18,14 @@ export class OrdineComponent implements OnInit {
     this.reloadData();
   }
   reloadData(){
-    this.es.findAllByOrderByFirstname().subscribe((arr)=>{
-      console.log(arr);
-      this.listaUtenti = arr;
+    this.es.getPage(0, 5,true).subscribe(size => {
+      console.log("cacca")
+      console.log(size)
+      this.listaUtenti = size.content;
     })
   }
   findByOrderByFirstname() {
-    this.es.findAllByOrderByFirstname().subscribe((a: any) => {
-      this.reloadData();
-    })
+      this.reloadData()
   }
   deleteUtente(id: number) {
     this.es.deteteUtente(id).subscribe((a: any) => {
@@ -34,10 +33,6 @@ export class OrdineComponent implements OnInit {
     })
 
   }
-  listautenti(){
-    this.router.navigate(['filtri'])
-  }
-
 
   ordineUtente() {
     this.router.navigate(['utente'])

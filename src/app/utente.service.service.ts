@@ -28,19 +28,17 @@ export class UtenteServiceService {
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/utente/${id}`);
   }
-  findAllByOrderByFirstname(): Observable<any>{
-    return this.http.get(`${this.url}/utente`)
-  }
+  /*findAllByOrderByFirstnameAsc(): Observable<any>{
+    return this.http.get(`${this.url}/utente/ordine`)
+  }*/
   search(name: string): Observable<Utente[]> {
     let params = new HttpParams().set('filter', name);
     return this.http.get<Utente[]>(`${this.url}/utente/search/${name}`, {params: params});
   }
-  getPage(page: number, size: number): Observable<any>{
-    let params = new HttpParams().set('page', page).set('size', size);
+
+  getPage(page: number, size: number, sort: boolean): Observable<any>{
+    let params = new HttpParams().set('page', page).set('size', size).set('sortDirection', sort);
     return this.http.get(`${this.url}/utente/page`, {params: params})
   }
-  getSize(page: number, size: number): Observable<any>{
-    let params = new HttpParams().set('page', page).set('size', size);
-    return this.http.get(`${this.url}/utente/page`, {params: params})
-  }
+
 }

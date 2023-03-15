@@ -13,13 +13,14 @@ import {PagingConfig} from "../pagingConfig";
 })
 export class UtentelistComponent implements OnInit {
   inputValue: string = '';
-  filteredOptions: string [] ;
+  filteredOptions: string [];
   listaUtenti: Utente[];
   tmp: boolean = false;
   firstname: string;
   page: number = 1;
   size: number = 5;
-  tableSize: number[] = [2,5,10];
+  sort = true;
+  tableSize: number[] = [2, 5, 10];
 
   pagingConfig: PagingConfig = {} as PagingConfig;
 
@@ -48,31 +49,37 @@ export class UtentelistComponent implements OnInit {
     });
   }
 
+  findByOrderByFirstname() {
+    this.getSize(0);
+  }
+
   dettagliUtente(id: number) {
     this.router.navigate(['dettagliutente', id]);
   }
-  ordineUtenti(){
-    this.router.navigate(['ordine']);}
+
+  ordineUtenti() {
+    // fai che quando clicchi la prima volta è ASC poi la seconda volta DESC
+   // this.findByOrderByFirstname();
+    this.sort = !this.sort;
+    this.getSize(0);
+  }
 
 
   onChange(value: string): void {
-      this.es.search(value).subscribe(list => {
-        this.filteredOptions = list.map(utente => utente.firstname);
+    this.es.search(value).subscribe(list => {
+      this.filteredOptions = list.map(utente => utente.firstname);
 
-      });
-    }
-  getPage(value: number){
-    this.es.getPage(value, this.pagingConfig.size).subscribe(size =>{
-
-    })
+    });
   }
-  onTableSizeChange(event:any): void {
+
+  TableSizeChange(event: any): void {
     this.pagingConfig.size = event.target.value;
     this.getSize(0);
   }
-  getSize(value: number){
-    this.es.getPage(value, this.pagingConfig.size).subscribe(size =>{
-          console.log("cacca")
+
+  getSize(value: number) {
+    this.es.getPage(value, this.pagingConfig.size,this.sort).subscribe(size => {
+      console.log("cacca")
       console.log(size)
       this.listaUtenti = size.content;
     })

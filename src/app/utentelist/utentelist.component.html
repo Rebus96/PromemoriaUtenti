@@ -39,7 +39,7 @@
 
   </tr>
   <div class="col-auto">
-    <select name="noOfRows" (change)="onTableSizeChange($event)" class="form-select form-select-sm">x
+    <select name="noOfRows" (change)="TableSizeChange($event)" class="form-select form-select-sm">x
       <option *ngFor="let size of tableSize" [value]="size">
         {{size}}
       </option>
