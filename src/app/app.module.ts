@@ -16,6 +16,14 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NzAutocompleteModule} from "ng-zorro-antd/auto-complete";
 import {NgxPaginationModule} from "ngx-pagination";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "./environments/environment.prod";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 registerLocaleData(en);
@@ -29,6 +37,8 @@ registerLocaleData(en);
     UtentelistComponent,
     DettagliutenteComponent,
     OrdineComponent,
+    DashboardComponent,
+    SignInComponent,
 
 
 
@@ -40,7 +50,13 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     NzAutocompleteModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+
 
 
 

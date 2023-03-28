@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Utente} from "./utente";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -28,9 +31,7 @@ export class UtenteServiceService {
   deteteUtente(id: number) {
     return this.http.delete(`${this.url}/utente/${id}`);
   }
-  /*findAllByOrderByFirstnameAsc(): Observable<any>{
-    return this.http.get(`${this.url}/utente/ordine`)
-  }*/
+
   search(name: string): Observable<Utente[]> {
     let params = new HttpParams().set('filter', name);
     return this.http.get<Utente[]>(`${this.url}/utente/search/${name}`, {params: params});
